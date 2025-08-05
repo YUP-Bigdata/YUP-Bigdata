@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - type: bind
+        source: ./elasticsearch/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        read_only: true
+      - type: bind
+        source: /HDD/ES_single
+        target: /usr/share/elasticsearch/data
+    ports:
+      - "9201:9200"
+    environment:
+      ES_JAVA_OPTS: "-Xmx2g -Xms2g"
+      discovery.type: single-node
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+    networks:
+      - elk
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    build:
+      context: kibana/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - type: bind
+        source: ./kibana/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+    ports:
+      - "5602:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+    environment:
+      KIBANA_SYSTEM_PASSWORD: yzCireMEtL9Yk6RWBUNX
+
+networks:
+  elk:
+    driver: bridge
+
+volumes:
+  elasticsearch:

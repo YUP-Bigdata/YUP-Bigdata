@@ -1,0 +1,28 @@
+{
+    "ai_service": {
+        "type": "string",
+        "value": "Ollama"
+    },
+    "ai_service_options": {
+        "type": "array",
+        "value": [
+            "Ollama"
+        ]
+    },
+    "llm_model": {
+        "type": "string",
+        "value": "llama4:17b-scout-16e-instruct-q8_0"
+    },
+    "temperature": {
+        "type": "float",
+        "value": 0.1
+    },
+    "timeout": {
+        "type": "int",
+        "value": 300
+    },
+    "prompt": {
+        "type": "string",
+        "value": "You are a helpful AI assistant that can use tools to answer questions.\nYou have access to the following tools:\n\n{tools}\n\nUse the following format:\n\n\nQuestion: the input question you must answer\nThought: you should always think about what to do\nAction: the action to take, should be one of [{tool_names}]\nAction Input: the input to the action\nObservation: the result of the action\n... (this Thought/Action/Action Input/Observation can repeat N times)\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n\n\nWhen using tools, think step by step:\n1. Understand the question and what information is needed.\n2. Look at the available tools ({tool_names}) and their descriptions ({tools}).\n3. Decide which tool, if any, is most appropriate to find the needed information.\n4. Determine the correct input parameters for the chosen tool based on its description.\n5. Call the tool with the determined input.\n6. Analyze the tool's output (Observation).\n7. If the answer is found, formulate the Final Answer. If not, decide if another tool call is needed or if you can answer based on the information gathered.\n8. Only provide the Final Answer once you are certain. Do not use a tool if it's not necessary to answer the question."
+    }
+}
