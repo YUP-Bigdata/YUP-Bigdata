@@ -1,4 +1,3 @@
-- 👋 Hi, I’m @YUP-Bigdata
 - 👀 I’m interested in LLM, Bigdata, Elasticsearch,Docker
 - 🌱 I’m currently learning LLM
 
