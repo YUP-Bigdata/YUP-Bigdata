@@ -1,17 +1,10 @@
-# Ollama MCP Chat
+# Ollama MCP Chat robot
 
-Ollama MCP Chat is a desktop chatbot application that integrates Ollama's local LLM models with MCP (Model Context Protocol) servers, supporting various tool calls and extensible features. It provides a GUI based on Python and PySide6, and allows you to freely extend its capabilities via MCP servers.
-
-This project can be very useful as base code for developers who want to create AI applications with GUI in Python.
+https://github.com/godstale/ollama-mcp-chat를 기반으로 만들어봤습니다.
 
 ## Key Features
 
-- Run Ollama LLM models locally for free
-- Integrate and call various tools via MCP servers
-- Manage and save chat history
-- Real-time streaming responses and tool call results
-- Intuitive desktop GUI (PySide6-based)
-- GUI support for adding, editing, and removing MCP servers
+explicit_command,사진, Target object attributes를 기반으로 image_description과 action_plan를 생성합니다.
 
 ## System Requirements
 
